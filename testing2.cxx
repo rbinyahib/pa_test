@@ -835,7 +835,7 @@ void GetData(int myRank, const options::Options &opts, const Bounds &currentdoma
         gettimeofday(&endTime, 0);
         dt = float(endTime.tv_sec - startTime.tv_sec) + float(endTime.tv_usec - startTime.tv_usec) / 1000000.0f;
         elapsed_secsExtrVec += dt;
-        cerr<<"elapsed_secsExtrVec "<<dt<<"\n";
+        //cerr<<"elapsed_secsExtrVec "<<dt<<"\n";
         elapsed_secsIO += dt;
         resampDS->Delete();
 
@@ -891,11 +891,11 @@ int main(int argc, char **argv)
     fold = opts.foldername + "/";
 
     char timingDet[1024];
-    sprintf(timingDet, "timingFiles/%stimingDet%d.txt",fold.c_str(),myRank);
+    sprintf(timingDet, "%stimingDet%d.txt",fold.c_str(),myRank);
     timDet.open(timingDet);
 
     char str[1024];
-    sprintf(str,"timingFiles/%sPOD%d_%d_MaxStep%d_nSeeds%d_vtkm:%d",fold.c_str(),myRank,numRanks,opts.maxAdvectSteps,opts.numSeeds,opts.vtkmON);
+    sprintf(str,"%sPOD%d_%d_MaxStep%d_nSeeds%d_vtkm:%d",fold.c_str(),myRank,numRanks,opts.maxAdvectSteps,opts.numSeeds,opts.vtkmON);
     if(myRank ==0) cerr<<" filePath "<<str<<" fold "<<fold<<"\n";
 
     TimingsManager::Initialize(str);

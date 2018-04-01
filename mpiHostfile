@@ -1,0 +1,4 @@
+cn1 slots=1 max-slots=2
+cn2 slots=1 max-slots=1
+cn3 slots=1 max-slots=1
+cn4 slots=1 max-slots=1
