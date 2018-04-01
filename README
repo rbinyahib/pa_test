@@ -1,0 +1,19 @@
+
+module load cmake 
+module load gcc-4.8/openmpi-1.8
+
+cmake -DVTK_DIR=/home/users/roba/VTK/ -DVTKm_DIR=/home/users/roba/ORNL/vtkmMaster/vtkm-build/lib/cmake/vtkm-1.0 -DCMAKE_CXX_COMPILER=/usr/bin/mpicxx -DCMAKE_C_COMPILER=/usr/bin/mpicc .
+
+
+
+mpirun -np 1 --hostfile ../mpiHostfile ./Testing --numDataBlocks 1 --filename ~/Data/Vector_Data/DecomposedData/astro_4Nodes_Binary/astro --file-dim 512 512 512 --resample-dim 512 512 512 --block-divisions 1 1 1 --POD --vtkm-on --seed-random-whole 134 --advect-step 0.0025
+
+
+//////////////
+
+
+
+
+
+
+
